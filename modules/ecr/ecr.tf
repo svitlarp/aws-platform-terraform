@@ -1,5 +1,5 @@
 # ECR
-resource "aws_ecr_repository" "lesson_5_ecr" {
+resource "aws_ecr_repository" "fleet-app" {
   name                 = var.ecr_name
   image_tag_mutability = "MUTABLE"
 
@@ -11,8 +11,8 @@ resource "aws_ecr_repository" "lesson_5_ecr" {
 # Repository Policy
 data "aws_caller_identity" "current" {}
 
-resource "aws_ecr_repository_policy" "lesson_5_ecr_policy" {
-  repository = aws_ecr_repository.lesson_5_ecr.name
+resource "aws_ecr_repository_policy" "fleet-app" {
+  repository = aws_ecr_repository.fleet-app.name
 
   policy = jsonencode({
     Version = "2012-10-17"

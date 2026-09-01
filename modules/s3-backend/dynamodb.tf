@@ -10,7 +10,9 @@ resource "aws_dynamodb_table" "terraform_locks" {
   }
 
   tags = {
-    Name        = "Terraform Lock Table"
-    Environment = "lesson-5"
+    Name        = var.dynamo_db_table_name
+    Project     = var.project
+    Environment = var.environment
+    Purpose     = "terraform-state-lock"
   }
 }

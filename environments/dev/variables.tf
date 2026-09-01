@@ -174,3 +174,26 @@ variable "dynamo_db_table_name" {
   description = "The name of the DynamoDB table for Terraform locks"
   type        = string
 }
+
+
+# EKS Cluster
+variable "eks_cluster_version" {
+  type        = string
+  description = "EKS control plane version"
+}
+
+variable "node_desired_size" {
+  description = "Initial node count"
+  type        = number
+  default     = 2
+}
+
+variable "node_max_size" {
+  description = "Maximum number of node"
+  type        = number
+}
+
+variable "node_min_size" {
+  description = "Minimum number of node"
+  type        = number
+}

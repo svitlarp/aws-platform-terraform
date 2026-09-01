@@ -3,8 +3,10 @@ resource "aws_s3_bucket" "tfstate" {
   bucket = var.s3_bucket_name
 
   tags = {
-    Name         = "Terraform State Bucket"
-    Environement = "lesson5"
+    Name = var.s3_bucket_name
+    Project     = var.project
+    Environment = var.environment
+    Purpose = "terraform-state"
   }
 }
 
