@@ -36,8 +36,6 @@ S3 backend with DynamoDB locking table for team collaboration
 > <span style="color: red"> ! IMPORTANT</span>
 > Provisioning this infrastructure will create AWS resources that generate costs. Always destroy unused resources and monitor usage through AWS Billing, Budgets, and Cost Explorer to prevent unexpected charges.
 
-### Architecture Diagram  
-![Image diagramm](docs/assets/diagram.png)
 
 ### Quick Start
 
