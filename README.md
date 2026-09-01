@@ -11,29 +11,35 @@ Table of contents
 + Troubleshooting [--->](#troubleshooting)
 
 ## About the Project
-Terraform infrastructure automation for AWS: VPC, ECR, S3.    
+Terraform infrastructure automation for AWS: VPC, ECR, S3, EKS.    
 Dev and prod environments with remote state management and troubleshooting documentation.
 
 #### AWS Resources Created by This Code
 
 **VPC** 
 - 1 VPC with configurable CIDR block
-- 2 public subnets (across 2 Availability Zones)
-- 2 private subnets (across 2 Availability Zones)
+- 3 public subnets (across 3 Availability Zones)
+- 3 private subnets (across 3 Availability Zones)
 - 1 Internet Gateway (IGW) for public subnet routing
-- 2 NAT Gateways with 2 Elastic IPs for private subnet egress
+- 3 NAT Gateways with 3 Elastic IPs for private subnet egress
 - Route tables (public and private) with appropriate associations
 - 2 Security Groups (ALB, EKS)
 
-**ECR**   
+**ECR**
+- 1 private ECR repository for application container images
 
 **S3**    
 S3 backend with DynamoDB locking table for team collaboration 
-- 1 S3 buckets  /
-- 2 S3 buckets (artifacts, backups)
+- 1 S3 bucket for Terraform remote state (versioning + encryption enabled)
+- 1 DynamoDB table for state locking
 
+**EKS**
+- 1 EKS cluster with API authentication mode
+- 1 managed node group deployed across 3 private subnets
+- 2 IAM roles (cluster control plane, worker nodes)
+- Private and public API server endpoint access
 
-> <span style="color: red"> ! IMPORTANT</span>
+> ! IMPORTANT
 > Provisioning this infrastructure will create AWS resources that generate costs. Always destroy unused resources and monitor usage through AWS Billing, Budgets, and Cost Explorer to prevent unexpected charges.
 
 
@@ -41,7 +47,7 @@ S3 backend with DynamoDB locking table for team collaboration
 
 **Prerequisites**
 ```
-terraform >= 1.0
+terraform >= 1.2
 aws-cli >= 2.0
 ```
 
