@@ -41,6 +41,23 @@ variable "subnet_alb_b_az" {
   description = "Avialability zones for public subnet_alb_b"
 }
 
+# subnet_alb_c
+variable "subnet_alb_c_name" {
+  type        = string
+  description = "Name Tag for public subnet subnet_alb_c"
+}
+
+variable "subnet_alb_c_cidr" {
+  type        = string
+  description = "CIDR block for public subnet subnet_alb_c"
+}
+
+variable "subnet_alb_c_az" {
+  type        = string
+  description = "Avialability zones for public subnet_alb_c"
+}
+
+
 # subnet_eks_a
 variable "subnet_eks_a_name" {
   type        = string
@@ -68,6 +85,22 @@ variable "subnet_eks_b_cidr" {
   description = "CIDR block for private subnet subnet_eks_b"
 }
 
+# subnet_eks_c
+variable "subnet_eks_c_name" {
+  type        = string
+  description = "Name Tag for private subnet subnet_eks_c"
+}
+
+variable "subnet_eks_c_cidr" {
+  type        = string
+  description = "CIDR block for private subnet subnet_eks_c"
+}
+
+variable "subnet_eks_c_az" {
+  type        = string
+  description = "Avialability zones for private subnet_eks_c"
+}
+
 variable "subnet_eks_b_az" {
   type        = string
   description = "Avialability zones for private subnet_eks_b"
@@ -90,6 +123,11 @@ variable "nat_eks_b_name" {
   description = "NAT for ALB 1b"
 }
 
+variable "nat_eks_c_name" {
+  type        = string
+  description = "NAT for ALB 1c"
+}
+
 
 # route table_name
 variable "rt_public_alb_cidr" {
@@ -110,5 +148,5 @@ variable "sg_alb" {
 
 variable "sg_eks" {
   type        = string
-  description = "Security Group for Elascic Container Service"
+  description = "Security Group for Elascic Kubernetes Service"
 }

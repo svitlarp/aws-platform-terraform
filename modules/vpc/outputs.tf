@@ -15,6 +15,11 @@ output "subnet_alb_b_id" {
   value       = aws_subnet.alb_b.id
 }
 
+output "subnet_alb_c_id" {
+  description = "The ID of the subnet subnet_alb_c"
+  value       = aws_subnet.alb_c.id
+}
+
 output "subnet_eks_a_id" {
   description = "The ID of the subnet subnet_eks_a"
   value       = aws_subnet.eks_a.id
@@ -23,6 +28,11 @@ output "subnet_eks_a_id" {
 output "subnet_eks_b_id" {
   description = "The ID of the subnet subnet_eks_b"
   value       = aws_subnet.eks_b.id
+}
+
+output "subnet_eks_c_id" {
+  description = "The ID of the subnet subnet_eks_c"
+  value       = aws_subnet.eks_c.id
 }
 
 # Internet Gateway
@@ -42,6 +52,12 @@ output "eip_eks_b" {
   value       = aws_eip.nat_eks_b.id
 }
 
+utput "eip_eks_c" {
+  description = "The ID of the EIP for private subnet c"
+  value       = aws_eip.nat_eks_c.id
+}
+
+
 # NAT gateway
 output "nat_eks_a_id" {
   description = "The ID of the NAT Gateway for eks"
@@ -51,6 +67,11 @@ output "nat_eks_a_id" {
 output "nat_eks_b_id" {
   description = "The ID of the NAT Gateway for eks"
   value       = aws_nat_gateway.eks_b.id
+}
+
+output "nat_eks_c_id" {
+  description = "The ID of the NAT Gateway for eks"
+  value       = aws_nat_gateway.eks_c.id
 }
 
 # Route tables
@@ -67,6 +88,11 @@ output "rt_private_eks_a_id" {
 output "rt_private_eks_b_id" {
   description = "The ID of route table eks b"
   value       = aws_route_table.private_eks_b.id
+}
+
+output "rt_private_eks_c_id" {
+  description = "The ID of route table eks c"
+  value       = aws_route_table.private_eks_c.id
 }
 
 # Security Groups
