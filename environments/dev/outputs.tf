@@ -26,7 +26,7 @@ output "eks_cluster_name" {
 
 output "eks_cluster_iam_role_name" {
   description = "The Name of EKS Cluster IAM Role"
-  value       = module.eks.eks_cluster_iam_role_name
+  value       = module.eks.eks_cluster_iam_role_arn
 }
 
 # EKS Node Group
@@ -37,5 +37,5 @@ output "eks_node_group_name" {
 
 output "eks_node_group_iam_role_name" {
   description = "The Name of EKS Cluster IAM Role"
-  value       = module.eks.eks_node_group_iam_role_name
+  value       = module.eks.eks_node_group_iam_role_arn
 }

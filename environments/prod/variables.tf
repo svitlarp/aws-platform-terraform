@@ -201,15 +201,16 @@ variable "endpoint_public_access" {
   description = "Whether the EKS cluster endpoint is publicly accessible"
 }
 
-variable "node_desired_size" {
-  description = "Initial node count"
-  type        = number
-  default     = 2
+# Node Group
+
+variable "instance_types" {
+  description = "Type of EC2 instance"
+  type        = list(string)
 }
 
-variable "endpoint_public_access" {
-  type        = bool
-  description = "Whether the EKS cluster endpoint is publicly accessible"
+variable "node_capacity_type" {
+  description = "Capacity type for EKS worker nodes, such as ON_DEMAND or SPOT"
+  type        = string
 }
 
 variable "node_desired_size" {

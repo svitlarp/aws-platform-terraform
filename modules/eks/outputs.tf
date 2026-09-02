@@ -9,9 +9,9 @@ output "eks_cluster_id" {
     value = aws_eks_cluster.this.id
 }
 
-output "eks_cluster_iam_role_name" {
+output "eks_cluster_iam_role_arn" {
     description = "The Name of EKS IAM Role"
-    value = aws_iam_role.cluster.name
+    value = aws_iam_role.cluster.arn
 }
 
 output "eks_cluster_iam_role_id" {
@@ -23,7 +23,7 @@ output "eks_cluster_iam_role_id" {
 # EKS Node Group
 output "eks_node_group_name" {
   description = "The Name of EKS Node Group"
-  value       = aws_eks_node_group.this.name
+  value       = aws_eks_node_group.this.node_group_name
 }
 
 output "eks_node_group_id" {
@@ -31,9 +31,9 @@ output "eks_node_group_id" {
   value       = aws_eks_node_group.this.id
 }
 
-output "eks_node_group_iam_role_name" {
+output "eks_node_group_iam_role_arn" {
   description = "The Name of EKS Node Group IAM Role"
-  value       = aws_iam_role.node.name
+  value       = aws_iam_role.node.arn
 }
 
 output "eks_node_group_iam_role_id" {

@@ -28,9 +28,9 @@ variable "eks_cluster_version" {
   type        = string
 }
 
-variable "instance_types" {
+variable "node_instance_types" {
   description = "Type of EC2 instance"
-  type        = string
+  type        = list(string)
 }
 
 variable "node_capacity_type" {

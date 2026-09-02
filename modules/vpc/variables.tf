@@ -1,4 +1,14 @@
 # vpc
+variable "project" {
+  type        = string
+  description = "The name of AWS region"
+}
+
+variable "environment" {
+  type        = string
+  description = "The name of AWS region"
+}
+
 variable "vpc_name" {
   type        = string
   description = "Name Tag for VPC"

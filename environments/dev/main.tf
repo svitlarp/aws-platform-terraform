@@ -19,6 +19,8 @@ locals {
 
 module "s3" {
   source = "../../modules/s3-backend"
+  project = var.project
+  environment = var.environment
 
   s3_bucket_name       = "${local.name_prefix}-s3-tfstate"
   dynamo_db_table_name = "${local.name_prefix}-dynamodb-tfstate"
@@ -27,6 +29,8 @@ module "s3" {
 # Connecting VPC
 module "vpc" {
   source = "../../modules/vpc"
+  project = var.project
+  environment = var.environment
 
   vpc_name = "${local.name_prefix}-vpc"
   vpc_cidr = var.vpc_cidr
@@ -92,7 +96,7 @@ module "eks" {
 
   endpoint_public_access = var.endpoint_public_access
 
-  instance_types = var.node_instance_types
+  node_instance_types = var.node_instance_types
   node_capacity_type = var.node_capacity_type
   node_desired_size = var.node_desired_size
   node_max_size     = var.node_max_size
