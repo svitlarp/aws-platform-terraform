@@ -3,6 +3,15 @@ variable "aws_region" {
   description = "The name of AWS region"
 }
 
+variable "project" {
+  type        = string
+  description = "The name of AWS region"
+}
+
+variable "environment" {
+  type        = string
+  description = "The name of AWS region"
+}
 
 # vpc
 variable "vpc_name" {
@@ -164,6 +173,11 @@ variable "ecr_name" {
   description = "Name for the Elascic Container Regestry"
 }
 
+variable "image_tag_mutability" {
+  type        = bool
+  description = "ECR image tag mutability"
+}
+
 # S3 Bucket for Terraform state
 variable "s3_bucket_name" {
   description = "The name of the S3 bucket for Terraform state"
@@ -180,6 +194,22 @@ variable "dynamo_db_table_name" {
 variable "eks_cluster_version" {
   type        = string
   description = "EKS control plane version"
+}
+
+variable "endpoint_public_access" {
+  type        = bool
+  description = "Whether the EKS cluster endpoint is publicly accessible"
+}
+
+variable "node_desired_size" {
+  description = "Initial node count"
+  type        = number
+  default     = 2
+}
+
+variable "endpoint_public_access" {
+  type        = bool
+  description = "Whether the EKS cluster endpoint is publicly accessible"
 }
 
 variable "node_desired_size" {

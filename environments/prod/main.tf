@@ -77,6 +77,7 @@ module "vpc" {
 module "ecr" {
   source   = "./modules/ecr"
   ecr_name = "${local.name_prefix}-ecr"
+  image_tag_mutability = var.image_tag_mutability
 }
 
 # Connecting EKS module
@@ -88,7 +89,11 @@ module "eks" {
   eks_cluster_iam_role_name    = "${local.name_prefix}-eks-cluster-role"
   eks_node_group_name          = "${local.name_prefix}-eks-node-group"
   eks_node_group_iam_role_name = "${local.name_prefix}-eks-node-group-role"
-
+  
+  endpoint_public_access = var.endpoint_public_access
+  
+  instance_types = var.node_instance_types
+  node_capacity_type = var.node_capacity_type
   node_desired_size = var.node_desired_size
   node_max_size     = var.node_max_size
   node_min_size     = var.node_min_size

@@ -18,7 +18,7 @@ locals {
 }
 
 module "s3" {
-  source = "./modules/s3-backend"
+  source = "../../modules/s3-backend"
 
   s3_bucket_name       = "${local.name_prefix}-s3-tfstate"
   dynamo_db_table_name = "${local.name_prefix}-dynamodb-tfstate"
@@ -26,7 +26,7 @@ module "s3" {
 
 # Connecting VPC
 module "vpc" {
-  source = "./modules/vpc"
+  source = "../../modules/vpc"
 
   vpc_name = "${local.name_prefix}-vpc"
   vpc_cidr = var.vpc_cidr
@@ -75,13 +75,14 @@ module "vpc" {
 }
 
 module "ecr" {
-  source   = "./modules/ecr"
+  source   = "../../modules/ecr"
   ecr_name = "${local.name_prefix}-ecr"
+  image_tag_mutability = var.image_tag_mutability
 }
 
 # Connecting EKS module
 module "eks" {
-  source = "./modules/eks"
+  source = "../../modules/eks"
 
   eks_cluster_name             = "${local.name_prefix}-eks"
   eks_cluster_version          = var.eks_cluster_version
@@ -89,6 +90,10 @@ module "eks" {
   eks_node_group_name          = "${local.name_prefix}-eks-node-group"
   eks_node_group_iam_role_name = "${local.name_prefix}-eks-node-group-role"
 
+  endpoint_public_access = var.endpoint_public_access
+
+  instance_types = var.node_instance_types
+  node_capacity_type = var.node_capacity_type
   node_desired_size = var.node_desired_size
   node_max_size     = var.node_max_size
   node_min_size     = var.node_min_size

@@ -3,6 +3,11 @@ variable "eks_cluster_name" {
   type        = string
 }
 
+variable "endpoint_public_access" {
+  type        = bool
+  description = "Whether the EKS cluster endpoint is publicly accessible"
+}
+
 variable "eks_cluster_iam_role_name" {
   description = "Name of the IAM Role for the EKS cluster"
   type        = string
@@ -20,6 +25,16 @@ variable "eks_node_group_iam_role_name" {
 
 variable "eks_cluster_version" {
   description = "Kubernetes version for the control plane"
+  type        = string
+}
+
+variable "instance_types" {
+  description = "Type of EC2 instance"
+  type        = string
+}
+
+variable "node_capacity_type" {
+  description = "Capacity type for EKS worker nodes, such as ON_DEMAND or SPOT"
   type        = string
 }
 

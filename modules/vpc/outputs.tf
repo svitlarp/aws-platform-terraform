@@ -52,7 +52,7 @@ output "eip_eks_b" {
   value       = aws_eip.nat_eks_b.id
 }
 
-utput "eip_eks_c" {
+output "eip_eks_c" {
   description = "The ID of the EIP for private subnet c"
   value       = aws_eip.nat_eks_c.id
 }

@@ -31,7 +31,7 @@ resource "aws_vpc_security_group_egress_rule" "alb_to_eks" {
 
 
 
-# Elascic Container Service (eks)
+# Elascic Kubernetes Service (eks)
 
 resource "aws_security_group" "eks" {
   name        = var.sg_eks
