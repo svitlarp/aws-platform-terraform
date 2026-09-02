@@ -18,6 +18,12 @@ Dev and prod environments with remote state management and troubleshooting docum
 
 **VPC** 
 - 1 VPC with configurable CIDR block
+```
+10.0.0.0/16   dev 
+10.1.0.0/16   prod
+10.2.0.0/16   staging (reserved)
+10.3.0.0/16   shared  (reserved)
+```
 - 3 public subnets (across 3 Availability Zones)
 - 3 private subnets (across 3 Availability Zones)
 - 1 Internet Gateway (IGW) for public subnet routing
